@@ -24,7 +24,7 @@
   </div>
 
   <div id="helpText" class="justify" ng-show="!showResults">
-    Syötä vähintään 3 merkkiä hakuun.
+    Syötä vähintään {{minSearchTermLength}} merkkiä hakuun.
   </div>
 
   <!-- <div>Search results loaded: {{foodData.length}}</div> -->
@@ -33,14 +33,26 @@
 
     <div id="searchResultContainer" class="justify" ng-show="showResults">
       <div ng-repeat="result in foodData | filter:searchTerm" class="resultItem">
-        <b>{{result.Name}}</b>
-        <br>
-        {{joulesToCalories(result.Enerc)}} kcal / 100 g
-        <br>
-        Proteiini: {{formatDecimal(result.Prot)}} g
-        <br>
-        Rasva: {{formatDecimal(result.Fat)}} g
+
+        <div class="data">
+          <b>{{result.Name}}</b>
+          <br>
+          {{joulesToCalories(result.Enerc)}} kcal / 100 g
+          <br>
+          Proteiini: {{formatDecimal(result.Prot)}} g
+          <br>
+          Rasva: {{formatDecimal(result.Fat)}} g
+
+        </div>
+        <div id="fineliLink" class="link">
+          <a href="http://www.fineli.fi/food.php?foodid={{result.FineliId.toString()}}&lang=fi">></a>
+        <div>
+        </div>
+
       </div>
+
+      <div class="clearFix"></div>
+
     </div>
 
   </div>

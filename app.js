@@ -9,7 +9,7 @@ angular.module('App', ['firebase'])
   $scope.searchTerm = null;
   $scope.searchTimer = null;
   $scope.maxResultCount = 10;
-  $scope.minSearchTermLength = 3;
+  $scope.minSearchTermLength = 4;
   $scope.searchTimeOut = 1000 * 0.5;
   $scope.showResults = false;;
 

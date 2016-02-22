@@ -20,8 +20,29 @@ body {
   background-color: #ffffff;
   border: red .1em #000000;
   padding: .4em;
-  margin: .4em;
+  margin: 1em auto;
   border-radius: .2em;
+  text-align: left;
+}
+
+.clearFix {
+    clear: both;
+}
+
+.resultItem .data {
+  float: left;
+  width: 80%;
+}
+
+.resultItem .link {
+    float: right;
+    font-size: 3em;
+    font-weight: 100;
+}
+
+.resultItem .link a {
+  text-decoration: none;
+  color: #eca00e;
 }
 
 ::-webkit-input-placeholder {
