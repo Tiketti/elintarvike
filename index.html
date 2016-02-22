@@ -11,7 +11,7 @@
 </head>
 <body ng-app="App" ng-controller="mainController">
 
-  <h1 class="justify">Elintarvikehaku</h1>
+  <h1 class="justify drop-shadow">Elintarvikehaku</h1>
 
   <div id="searchContainer" class="justify">
     <input  type="search"
@@ -45,7 +45,7 @@
 
         </div>
         <div id="fineliLink" class="link">
-          <a href="http://www.fineli.fi/food.php?foodid={{result.FineliId.toString()}}&lang=fi">></a>
+          <a href="http://www.fineli.fi/food.php?foodid={{result.FineliId.toString()}}&lang=fi" title="Linkki Fineli-sivustolle">></a>
         <div>
         </div>
 
@@ -58,7 +58,8 @@
   </div>
 
   <div id="footer" class="justify">
-    Made by <a href="https://twitter.com/Tiketti">Tiketti</a>. <a href="https://github.com/Tiketti/elintarvike">Fork me on GitHub.</a>
+    <p>Made by <a href="https://twitter.com/Tiketti">Perttu Haliseva</a>. <a href="https://github.com/Tiketti/elintarvike">Fork me on GitHub.</a></p>
+    <p class="license">GNU GENERAL PUBLIC LICENSE Version 3</p>
   </div>
 
 </body>
