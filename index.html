@@ -1,0 +1,54 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+  <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+  <script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
+  <script type="text/javascript" src="app.js" charset="UTF-8"></script>
+  <link href="css/main.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel='stylesheet' type='text/css'>
+
+</head>
+<body ng-app="App" ng-controller="mainController">
+
+  <h1 class="justify">Elintarvikehaku</h1>
+
+  <div id="searchContainer" class="justify">
+    <input  type="search"
+            result="5"
+            autosave="recent-searches"
+            id="search"
+            ng-model="searchTerm"
+            ng-change="searchTermUpdated()"
+            placeholder="hae..." />
+  </div>
+
+  <div id="helpText" class="justify" ng-show="!showResults">
+    Syötä vähintään 3 merkkiä hakuun.
+  </div>
+
+  <!-- <div>Search results loaded: {{foodData.length}}</div> -->
+
+  <div class="justify">
+
+    <div id="searchResultContainer" class="justify" ng-show="showResults">
+      <div ng-repeat="result in foodData | filter:searchTerm" class="resultItem">
+        <b>{{result.Name}}</b>
+        <br>
+        {{joulesToCalories(result.Enerc)}} kcal
+        <br>
+        Proteiini: {{formatDecimal(result.Prot)}}
+        <br>
+        Rasva: {{formatDecimal(result.Fat)}}
+      </div>
+    </div>
+
+  </div>
+
+</body>
+
+<script>
+
+</script>
+
+</html>

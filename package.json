@@ -1,0 +1,11 @@
+{
+  "name": "Elintarvike",
+  "description": "Mobiiliystävällinen (-ystävällisempi) Fineli-tietokantahaku",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.9.8"
+  }
+}
