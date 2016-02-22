@@ -35,11 +35,11 @@
       <div ng-repeat="result in foodData | filter:searchTerm" class="resultItem">
         <b>{{result.Name}}</b>
         <br>
-        {{joulesToCalories(result.Enerc)}} kcal
+        {{joulesToCalories(result.Enerc)}} kcal / 100 g
         <br>
-        Proteiini: {{formatDecimal(result.Prot)}}
+        Proteiini: {{formatDecimal(result.Prot)}} g
         <br>
-        Rasva: {{formatDecimal(result.Fat)}}
+        Rasva: {{formatDecimal(result.Fat)}} g
       </div>
     </div>
 
