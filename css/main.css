@@ -1,10 +1,35 @@
+/* media queries */
+@media (max-width: 799px) {
+  body{
+    background-image: url(../public/pancakes.jpg);
+  }
+}
+
+@media (min-width: 800px) {
+  #search {
+    width: 60%;
+    height: 3em;
+    font-size: 2em;
+    border: black .05em solid;
+    border-radius: .2em;
+  }
+
+  body {
+    background-image: url(../public/pancakes.jpg);
+  }
+}
+/* // media queries */
+
 body {
-    background-color: #bcc2c6;
-    font-family: 'Roboto', sans-serif;
+  background-color: #bcc2c6;
+  font-family: 'Roboto', sans-serif;
+  background-size: cover;
+  background-color: rgba(255, 255, 255, .7);
+  background-blend-mode: color;
 }
 
 .justify {
-    text-align: center;
+  text-align: center;
 }
 
 #searchResultContainer {
@@ -59,16 +84,6 @@ body {
   border-radius: .2em;
 }
 
-@media (min-width: 800px) {
-  #search {
-    width: 60%;
-    height: 3em;
-    font-size: 2em;
-    border: black .05em solid;
-    border-radius: .2em;
-  }
-}
-
 #helpText {
   padding: .5em;
   font-size: 1.5em;
@@ -81,7 +96,7 @@ body {
 #footer a {
   border-bottom: #eca00e 0.1em dashed;
   text-decoration: none;
-  color: #eca00e;
+  color: #000000;
 }
 
 #footer a:hover {
