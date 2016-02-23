@@ -45,7 +45,6 @@ body {
 .resultItem {
   color: #eca00e;
   background-color: #ffffff;
-  border: red .1em #000000;
   padding: .4em;
   margin: 1em auto;
   border-radius: .2em;
@@ -53,7 +52,28 @@ body {
   overflow: hidden;
 }
 
-.justify {
+.animation {
+    -webkit-transition: 0.2s;
+    transition: 0.2s linear all;
+}
+
+.animation.ng-enter {
+  opacity: 0;
+}
+
+.animation.ng-leave {
+  opacity: 1;
+}
+
+.animation.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+
+.animation.ng-leave.ng-leave-active {
+  opacity: 0;
+}
+
+.center {
   text-align: center;
 }
 
@@ -92,6 +112,7 @@ body {
 }
 
 .license {
+  display: none;
 }
 
 
