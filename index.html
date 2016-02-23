@@ -20,24 +20,23 @@
             autosave="recent-searches"
             id="search"
             ng-model="searchTerm"
-            ng-change="searchTermUpdated()"
             placeholder="hae..." />
   </div>
 
-  <div id="helpText" class="center" ng-show="!showResults">
+  <div id="helpText" class="center" ng-show="searchTerm == null || searchTerm.length < minSearchTermLength">
     Syötä vähintään {{::minSearchTermLength}} merkkiä hakuun.
   </div>
 
   <div class="center">
 
-    <div id="searchResultContainer" class="center" ng-show="showResults">
-      <div ng-repeat="result in foodData | filter:searchTerm" class="resultItem animation">
+    <div id="searchResultContainer" class="center" ng-show="searchTerm != null && searchTerm.length >= minSearchTermLength">
+      <div ng-repeat="result in foodData | filter:{'Name': searchTerm}:strict" class="resultItem animation">
 
         <div class="data">
           <b>{{result.Name}}</b>
           <br>
           <span class="spacious">
-            {{joulesToCalories(result.Enerc)}} kcal / 100 g
+            {{result.Enerc}} kcal / 100 g
           </span>
           <br>
           <span class="spacious">
