@@ -19,18 +19,18 @@ angular.module('App', ['firebase', 'ngAnimate'])
     $scope.fb.once("value", function(data) {
 
       data.forEach(function(item) {
-        var o = item.val()["item"];
-
-        $scope.foodData.push(
-          {
-            "Name": o["Name"],
-            "Enerc": $scope.joulesToCalories(o["Enerc"]),
-            "Choavl": o["Choavl"],
-            "Prot": o["Prot"],
-            "Fat": o["Fat"],
-            "FineliId": o["FineliId"]
-          }
-        );
+        $scope.foodData.push(item.val()["item"]);
+        // var o = item.val()["item"];
+        // $scope.foodData.push(
+        //   {
+        //     "Name": o["Name"],
+        //     "Enerc": $scope.joulesToCalories(o["Enerc"]),
+        //     "Choavl": o["Choavl"],
+        //     "Prot": o["Prot"],
+        //     "Fat": o["Fat"],
+        //     "FineliId": o["FineliId"]
+        //   }
+        // );
 
       });
       console.log('data ready');
