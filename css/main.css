@@ -1,25 +1,3 @@
-/* media queries */
-@media (max-width: 799px) {
-  body{
-    background-image: url(../public/pancakes.jpg);
-  }
-}
-
-@media (min-width: 800px) {
-  #search {
-    width: 60%;
-    height: 3em;
-    font-size: 2em;
-    border: black .05em solid;
-    border-radius: .2em;
-  }
-
-  body {
-    background-image: url(../public/pancakes.jpg);
-  }
-}
-/* // media queries */
-
 body {
   background-color: #bcc2c6;
   font-family: 'Roboto', sans-serif;
@@ -28,13 +6,13 @@ body {
   background-blend-mode: color;
 }
 
-.justify {
+#search {
+  width: 90%;
+  height: 3em;
   text-align: center;
-}
-
-.spacious {
-  margin: .3em 0em;
-  display: inline-block;
+  font-size: 2em;
+  border: black .1em solid;
+  border-radius: .2em;
 }
 
 #searchResultContainer {
@@ -45,6 +23,25 @@ body {
   margin: 0.5em;
 }
 
+#helpText {
+  padding: .5em;
+  font-size: 1.5em;
+}
+
+#footer {
+    font-size: 0.7em;
+}
+
+#footer a {
+  border-bottom: #eca00e 0.1em dashed;
+  text-decoration: none;
+  color: #000000;
+}
+
+#footer a:hover {
+  border-bottom: #eca00e 0.2em solid;
+}
+
 .resultItem {
   color: #eca00e;
   background-color: #ffffff;
@@ -53,6 +50,16 @@ body {
   margin: 1em auto;
   border-radius: .2em;
   text-align: left;
+  overflow: hidden;
+}
+
+.justify {
+  text-align: center;
+}
+
+.spacious {
+  margin: .3em 0em;
+  display: inline-block;
 }
 
 .clearFix {
@@ -80,38 +87,46 @@ body {
   font-style: italic;
 }
 
-#search {
-  width: 90%;
-  height: 3em;
-  text-align: center;
-  font-size: 2em;
-  border: black .1em solid;
-  border-radius: .2em;
-}
-
-#helpText {
-  padding: .5em;
-  font-size: 1.5em;
-}
-
-#footer {
-    font-size: 0.7em;
-}
-
-#footer a {
-  border-bottom: #eca00e 0.1em dashed;
-  text-decoration: none;
-  color: #000000;
-}
-
-#footer a:hover {
-  border-bottom: #eca00e 0.2em solid;
-}
-
 .drop-shadow {
   text-shadow: 2px 2px 6px rgba(150, 150, 150, 1);
 }
 
 .license {
-
 }
+
+
+/********************
+*
+*   media queries
+*
+********************/
+
+@media (max-width: 799px) {
+  body{
+    background-image: url(../public/pancakes.jpg);
+  }
+}
+
+@media (min-width: 800px) {
+  #search {
+    width: 60%;
+    height: 3em;
+    font-size: 2em;
+    border: black .05em solid;
+    border-radius: .2em;
+  }
+
+  body {
+    background-image: url(../public/pancakes.jpg);
+  }
+
+  .resultItem {
+    width: 300px;
+    height: 175px;
+    /*float: left;*/
+    display: inline-block;
+    border: black 1px solid;
+    margin: 1em;
+  }
+}
+/* --> media queries */
