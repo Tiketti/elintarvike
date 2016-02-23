@@ -27,7 +27,8 @@ angular.module('App', ['firebase', 'ngAnimate'])
             "Enerc": $scope.joulesToCalories(o["Enerc"]),
             "Choavl": o["Choavl"],
             "Prot": o["Prot"],
-            "Fat": o["Fat"]
+            "Fat": o["Fat"],
+            "FineliId": o["FineliId"]
           }
         );
 
