@@ -19,7 +19,18 @@ angular.module('App', ['firebase', 'ngAnimate'])
     $scope.fb.once("value", function(data) {
 
       data.forEach(function(item) {
-        $scope.foodData.push(item.val()["item"]);
+        var o = item.val()["item"];
+
+        $scope.foodData.push(
+          {
+            "Name": o["Name"],
+            "Enerc": $scope.joulesToCalories(o["Enerc"]),
+            "Choavl": o["Choavl"],
+            "Prot": o["Prot"],
+            "Fat": o["Fat"]
+          }
+        );
+
       });
       $scope.$apply();
     });
@@ -39,18 +50,12 @@ angular.module('App', ['firebase', 'ngAnimate'])
   }
 
   $scope.searchTermUpdated = function() {
-    $scope.showResults = ($scope.searchTerm != null && $scope.searchTerm.length >= $scope.minSearchTermLength);
-
     // start timer
     clearTimeout($scope.searchTimer);
 
     // start searching when specified time has passed
     $scope.searchTimer = setTimeout(function doSearch() {
-      console.log('searchTerm: %s', $scope.searchTerm);
-
-      $scope.showResults = true;
-      // $scope.$apply();
-
+      $scope.showResults = ($scope.searchTerm != null && $scope.searchTerm.length >= $scope.minSearchTermLength);
     }, $scope.searchTimeOut)
   }
 
