@@ -3,6 +3,7 @@ angular.module('App', ['firebase', 'ngAnimate'])
 
 .controller('mainController', function($scope, $firebase) {
 
+  $scope.placeholder = "ladataan...";
   $scope.foodData = [];
   $scope.results = [];
   $scope.searchTerm = null;
@@ -33,6 +34,7 @@ angular.module('App', ['firebase', 'ngAnimate'])
 
       });
       console.log('data ready');
+      $scope.placeholder = "hae...";
       $scope.$apply();
     });
   }
