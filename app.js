@@ -1,16 +1,15 @@
 // create our angular module and inject firebase
 angular.module('App', ['firebase', 'ngAnimate'])
 
-// create our main controller and get access to firebase
 .controller('mainController', function($scope, $firebase) {
 
   $scope.foodData = [];
-  $scope.result = {};
+  $scope.results = [];
   $scope.searchTerm = null;
+  $scope.previousSearchTerm = '';
   $scope.searchTimer = null;
-  $scope.maxResultCount = 10;
   $scope.minSearchTermLength = 4;
-  $scope.searchTimeOut = 1000 * 0.5;
+  $scope.searchTimeOut = 1000 * 0.8;
   $scope.showResults = false;
 
   $scope.fb = new Firebase("https://ilenif.firebaseio.com/");
@@ -51,20 +50,57 @@ angular.module('App', ['firebase', 'ngAnimate'])
     return parseFloat(val.replace(',', '.')).toFixed(1);
   }
 
-  // $scope.searchTermUpdated = function() {
-  //   $scope.showResults = ($scope.searchTerm != null && $scope.searchTerm.length >= $scope.minSearchTermLength);
-  //
-  //   // start timer
-  //   clearTimeout($scope.searchTimer);
-  //
-  //   // start searching when specified time has passed
-  //   $scope.searchTimer = setTimeout(function doSearch() {
-  //     console.log('searchTerm: %s', $scope.searchTerm);
-  //     $scope.showResults = true;
-  //     // $scope.$apply();
-  //
-  //   }, $scope.searchTimeOut)
-  // }
+  $scope.searchTermUpdated = function() {
+    // search term too short, do nothing, hide results
+    if($scope.searchTerm == null || $scope.searchTerm.length < $scope.minSearchTermLength) {
+      $scope.results = [];
+      $scope.showResults = false;
+      // $scope.previousSearchTerm = $scope.searchTerm;
+      return;
+    }
+
+    // search term hasn't changed, return
+    if($scope.searchTerm == $scope.previousSearchTerm) return;
+
+    // start timer
+    clearTimeout($scope.searchTimer);
+
+    // give user a moment to finish typing.
+    // only start searching when specified time has passed
+    $scope.searchTimer = setTimeout(function doSearch() {
+      console.log('searchTerm: %s', $scope.searchTerm);
+
+      if($scope.searchTerm.length > $scope.minSearchTermLength && $scope.previousSearchTerm != "" && $scope.searchTerm.startsWith($scope.previousSearchTerm)) {
+
+        $scope.previousSearchTerm = $scope.searchTerm;
+
+        // user keeps adding to earlier search, loop through
+        // already filtered list of results
+        for(var i = $scope.results.length; i--; i >= 0) {
+          var item = $scope.results[i];
+
+          if(item.Name.indexOf($scope.searchTerm.toUpperCase()) < 0) {
+            console.log('search not found for item %s', item.Name);
+            $scope.results.splice(i, 1);
+          }
+        }
+
+      } else {
+        // search term has changed enough, start from whole data set
+        $scope.results = [];
+        $scope.previousSearchTerm = $scope.searchTerm;
+
+        $scope.foodData.forEach(function(item) {
+          if(item.Name.indexOf($scope.searchTerm.toUpperCase()) > -1) $scope.results.push(item);
+        });
+
+      }
+
+      if($scope.results.length > 0) $scope.showResults = true;
+      $scope.$apply();
+
+    }, $scope.searchTimeOut)
+  }
 
   $scope.initialFetch();
 

@@ -19,6 +19,8 @@
             result="5"
             autosave="recent-searches"
             id="search"
+            ng-disabled="foodData.length < 1" 
+            ng-change="searchTermUpdated()"
             ng-model="searchTerm"
             placeholder="hae..." />
   </div>
@@ -30,13 +32,13 @@
   <div class="center">
 
     <div id="searchResultContainer" class="center" ng-show="searchTerm != null && searchTerm.length >= minSearchTermLength">
-      <div ng-repeat="result in foodData | filter:{'Name': searchTerm}:strict" class="resultItem animation">
+      <div ng-repeat="result in results" class="resultItem animation">
 
         <div class="data">
           <b>{{result.Name}}</b>
           <br>
           <span class="spacious">
-            {{result.Enerc}} kcal / 100 g
+            {{joulesToCalories(result.Enerc)}} kcal / 100 g
           </span>
           <br>
           <span class="spacious">
