@@ -32,6 +32,11 @@ body {
   text-align: center;
 }
 
+.spacious {
+  margin: .3em 0em;
+  display: inline-block;
+}
+
 #searchResultContainer {
   /*border: black .05em solid;*/
   width: 90%;

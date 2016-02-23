@@ -37,11 +37,17 @@
         <div class="data">
           <b>{{result.Name}}</b>
           <br>
-          {{joulesToCalories(result.Enerc)}} kcal / 100 g
+          <span class="spacious">
+            {{joulesToCalories(result.Enerc)}} kcal / 100 g
+          </span>
           <br>
-          Proteiini: {{formatDecimal(result.Prot)}} g
-          <br>
-          Rasva: {{formatDecimal(result.Fat)}} g
+          <span class="spacious">
+            Hiilihydraatit: {{result.Choavl}}
+            <br>
+            Proteiini: {{formatDecimal(result.Prot)}} g
+            <br>
+            Rasva: {{formatDecimal(result.Fat)}} g
+          </span>
 
         </div>
         <div id="fineliLink" class="link">
