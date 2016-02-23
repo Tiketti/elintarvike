@@ -40,6 +40,18 @@ angular.module('App', ['firebase', 'ngAnimate'])
 
   $scope.searchTermUpdated = function() {
     $scope.showResults = ($scope.searchTerm != null && $scope.searchTerm.length >= $scope.minSearchTermLength);
+
+    // start timer
+    clearTimeout($scope.searchTimer);
+
+    // start searching when specified time has passed
+    $scope.searchTimer = setTimeout(function doSearch() {
+      console.log('searchTerm: %s', $scope.searchTerm);
+
+      $scope.showResults = true;
+      // $scope.$apply();
+
+    }, $scope.searchTimeOut)
   }
 
   $scope.initialFetch();

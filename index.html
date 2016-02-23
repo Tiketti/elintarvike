@@ -25,7 +25,7 @@
   </div>
 
   <div id="helpText" class="center" ng-show="!showResults">
-    Syötä vähintään {{minSearchTermLength}} merkkiä hakuun.
+    Syötä vähintään {{::minSearchTermLength}} merkkiä hakuun.
   </div>
 
   <div class="center">
@@ -41,11 +41,11 @@
           </span>
           <br>
           <span class="spacious">
-            Hiilihydraatit: {{formatDecimal(result.Choavl)}}
+            Hiilihydraatit: {{result.Choavl}}
             <br>
-            Proteiini: {{formatDecimal(result.Prot)}} g
+            Proteiini: {{result.Prot}} g
             <br>
-            Rasva: {{formatDecimal(result.Fat)}} g
+            Rasva: {{result.Fat}} g
           </span>
 
         </div>
