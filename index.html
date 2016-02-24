@@ -19,10 +19,9 @@
             result="5"
             autosave="recent-searches"
             id="search"
-            ng-disabled="foodData.length < 1"
             ng-change="searchTermUpdated()"
             ng-model="searchTerm"
-            placeholder="{{placeholder}}" />
+            placeholder="{{::placeholder}}" />
   </div>
 
   <div id="helpText" class="center" ng-show="searchTerm == null || searchTerm.length < minSearchTermLength">
@@ -35,23 +34,23 @@
       <div ng-repeat="result in results" class="resultItem animation">
 
         <div class="data">
-          <b>{{result.Name}}</b>
+          <b>{{result.name}}</b>
           <br>
           <span class="spacious">
             {{joulesToCalories(result.Enerc)}} kcal / 100 g
           </span>
           <br>
           <span class="spacious">
-            Hiilihydraatit: {{result.Choavl}} g
+            Hiilihydraatit: {{result.carbs}} g
             <br>
-            Proteiini: {{result.Prot}} g
+            Proteiini: {{result.prot}} g
             <br>
-            Rasva: {{result.Fat}} g
+            Rasva: {{result.fat}} g
           </span>
 
         </div>
         <div id="fineliLink" class="link">
-          <a href="http://www.fineli.fi/food.php?foodid={{result.FineliId.toString()}}&lang=fi" title="Linkki Fineli-sivustolle">></a>
+          <a href="http://www.fineli.fi/food.php?foodid={{result.fineliid.toString()}}&lang=fi" title="Linkki Fineli-sivustolle">></a>
         <div>
         </div>
 

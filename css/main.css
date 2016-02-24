@@ -41,7 +41,7 @@ body {
 }
 
 input:disabled {
-    background-color: #56565c;
+      background-color: #56565c;
 }
 
 .resultItem {
