@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-require('../env.js'); // contains MONGOLAB_URI
 
 console.log('MONGOLAB_URI: %s', process.env.MONGOLAB_URI);
 
