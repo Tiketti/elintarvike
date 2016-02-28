@@ -1,10 +1,11 @@
 var express = require('express');
+var fb = require('firebase');
+var Search = require('./models/singleSearch');
+
 var app = express();
-var fb = require('firebase')
+var ref = new Firebase("https://ilenif.firebaseio.com/");
 
 var foodData = [];
-
-var ref = new Firebase("https://ilenif.firebaseio.com/");
 
 function joulesToCalories(val) {
   if(val === null || val.length < 1) return "";
@@ -51,7 +52,16 @@ app.get('/api', function (req, res) {
 // GET food items by search term
 app.get('/api/search/:searchterm?', function (req, res){
   var searchTerm = req.params.searchterm;
-  console.dir('named parameter: ' + searchTerm);
+  console.dir('searched: ' + searchTerm);
+
+  var singleSearch = new Search({
+    term: searchTerm
+  });
+
+  singleSearch.save(function (err) {
+      if(err) console.log(err);
+  });
+
   var results = [];
 
   foodData.forEach(function(item) {
