@@ -9,5 +9,9 @@
     "express": "^4.9.8",
     "firebase": "^2.4.1",
     "mongoose": "^4.4.5"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.2.0"
   }
 }
