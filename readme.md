@@ -1,5 +1,7 @@
 # Elintarvikehaku
 
+### http://elintarvike.herokuapp.com
+
 **If you're searching for information on Finnish food items, I'd assume you are comfortable reading Finnish :)**
 
 ### Hae nopeammin mobiililaitteella Finelin elintarviketietokannasta
