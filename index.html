@@ -31,7 +31,10 @@
   <div class="center">
 
     <div id="searchResultContainer" class="center" ng-show="searchTerm != null && searchTerm.length >= minSearchTermLength">
-      <div ng-repeat="result in results" class="resultItem animation">
+
+      <div id="noResults" ng-show=""></div>
+
+      <div ng-repeat="result in results track by result.fineliid" class="resultItem animation">
 
         <div class="data">
           <b>{{result.name}}</b>
